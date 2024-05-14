@@ -16,13 +16,16 @@ DROP DATABASE test;
 DELETE FROM mysql.db WHERE db='test';
 DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1.', '::1');
 
-CREATE DATABASE $MYSQL_DATABASE ;
+CREATE DATABASE ${MYSQL_DATABASE};
 CREATE USER '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';
 
-FLUSH PRIVILEGES
+FLUSH PRIVILEGES;
 
 EOF
 
+chmod +x init.sql
+
+mv init.sql /var/lib/mysql/init.sql
+fi
 echo "Mariadb started"
 mariadbd --init-file /var/lib/mysql/init.sql
-execv /user/bin/mysqld --user=mysql --console
