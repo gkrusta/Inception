@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  mariadb:
+    image: mariadb
+    container_name: mariadb-container
+    build: ./requirements/mariadb
+    networks:
+      - inception
+    restart: always
+    env_file: .env
+#    volumes:
+#      - db_volume:/var/lib/mysql
+  wordpress:
+    image: wordpress
+    container_name: wordpress-container
+    build: ./requirements/wordpress
+    networks:
+      - inception
+    restart: always
+    env_file: .env
+#    volumes:
+#      - wordpress_volume:/var/lib/mysql
+
+networks:
+  inception:
+    driver: bridge
+

@@ -1,4 +1,4 @@
-docker build -t nameImage ./
+docker build -t nameImage .
 docker run --rm --name test -d nameImage
 docker run -d --name test -p 3306:3306 new
 docker ps -> check cont. exec with -a flag all containers
@@ -6,3 +6,22 @@ docker images -> check images
 docker exec -it test /bin/bash
 
 mariadb -u root -p
+
+- Build:
+docker-compose up -d
+
+- Build and Use Updated Images:
+docker-compose up -d --build
+
+- Remove Old Unused Images:
+docker images
+docker rmi [IMAGE_ID]
+
+- Remove all unused images not referenced by any containers:
+docker image prune -a -f
+
+- Remove the volumes:
+docker-compose down -v
+
+- For a full cleanup:
+docker-compose down -v && docker image prune -a -f
