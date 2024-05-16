@@ -15,4 +15,4 @@ EXPOSE 9000
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
-CMD ["sh", ""]
+CMD ["sh", "/tmp/wp.sh"]

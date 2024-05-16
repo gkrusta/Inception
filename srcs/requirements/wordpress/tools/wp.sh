@@ -1,15 +1,18 @@
 #!/bin/sh
 
 WP_DIR=/var/www/html/wordpress
+mkdir -p /run/php/
 
 if [ ! -d "$WP_DIR" ]
 then
 	mkdir -p "$WP_DIR"
 fi
 
+chown -R www-data:www-data "$WP_DIR"
+
 if [ ! -f wp-config.php ]
 echo "Setting up WordPress"
-curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
+wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
 chmod +x wp-cli.phar 
 mv wp-cli.phar /usr/local/bin/wp
 
