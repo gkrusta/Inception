@@ -1,13 +1,12 @@
 FROM debian:bullseye
 
 RUN apt-get update -y && apt-get upgrade -y \
-	&& apt-get install php-fpm php-mysql wget -y \
+	&& apt-get install php-fpm php-mysql wget unzip -y \
 	&& apt-get install tini -y \
-	&& wget https://wordpress.org/latest.zip \
-	&& unzip latest.zip -d /var/www/html/ \
-	&& rm latest.zip \
-	&& 
-
+	&& wget http://wordpress.org/latest.tar.gz \
+	&& mkdir -p /var/www/html \
+	&& tar xfz latest.tar.gz -C /var/www/html \
+	&& rm -rf latest.tar.gz
 
 COPY ./tools/wp.sh /tmp/wp.sh
 

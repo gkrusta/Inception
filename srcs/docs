@@ -1,13 +1,17 @@
-docker build -t nameImage .
-docker run --rm --name test -d nameImage
-docker run -d --name test -p 3306:3306 new
+- Build 1 container just with a Dockerfile:
+docker build -t nameIamge .
+docker run --rm --name nameContainer -d nameIamge
+docker run -d --name nameContainer -p 3306:3306 new
 docker ps -> check cont. exec with -a flag all containers
-docker images -> check images 
+docker images -> check images
+
+- Enter into a container:
 docker exec -it test /bin/bash
 
+- Enter into a database:
 mariadb -u root -p
 
-- Build:
+- Build in deamon mode:
 docker-compose up -d
 
 - Build and Use Updated Images:
@@ -25,3 +29,9 @@ docker-compose down -v
 
 - For a full cleanup:
 docker-compose down -v && docker image prune -a -f
+
+- Show logs:
+docker-compose logs -f
+
+- Stop a container:
+docker-compose down
