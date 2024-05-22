@@ -30,6 +30,6 @@ wp user create $WORDPRESS_USER $WORDPRESS_USER_EMAIL --role=author --user_pass=$
 
 sed -i 's|listen = /run/php/php7.4-fpm.sock|listen = 9000|' /etc/php/7.4/fpm/pool.d/www.conf
 
-echo "Starting PHP-FPM"
+echo "Starting WordPress"
 sleep 1
 /usr/sbin/php-fpm7.4 -F
