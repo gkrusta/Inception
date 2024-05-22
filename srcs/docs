@@ -6,7 +6,7 @@ docker ps -> check cont. exec with -a flag all containers
 docker images -> check images
 
 - Enter into a container:
-docker exec -it test /bin/bash
+docker exec -it <container_name_or_id> /bin/bash
 
 - Enter into a database:
 mariadb -u root -p
