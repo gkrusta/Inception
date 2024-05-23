@@ -1,0 +1,7 @@
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY '111';
+CREATE DATABASE IF NOT EXISTS mariadb;
+CREATE USER IF NOT EXISTS 'user_mariadb'@'%' IDENTIFIED BY '222';
+GRANT ALL PRIVILEGES ON mariadb.* TO 'user_mariadb'@'%';
+FLUSH PRIVILEGES;
+

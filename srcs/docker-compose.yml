@@ -11,8 +11,9 @@ services:
     restart: always
     env_file:
       - .env
-#    volumes:
-#      - db_volume:/var/lib/mysql
+    volumes:
+      - ./mariadb_vol/:/var/lib/mysql/:delegated
+
 
   wordpress:
     image: wordpress
@@ -26,8 +27,8 @@ services:
       - .env
     depends_on:
       - mariadb
-#    volumes:
-#      - wordpress_volume:/
+    volumes:
+      - ./wordpress_vol/:/var/www/html/:delegated
 
   nginx:
     image: nginx
@@ -43,8 +44,8 @@ services:
       - wordpress
     #ports:
    #   - " 443:443"
-#    volumes:
-#      - wordpress_volume:/
+    volumes:
+      - ./wordpress_vol/:/var/www/html/:delegated
 
 networks:
   inception:

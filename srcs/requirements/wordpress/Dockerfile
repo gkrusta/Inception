@@ -8,8 +8,6 @@ RUN apt-get update -y && apt-get upgrade -y \
 	&& tar xfz latest.tar.gz -C /var/www/html \
 	&& rm -rf latest.tar.gz
 
-RUN apt-get update && apt-get install -y iputils-ping
-
 COPY ./tools/wp.sh /tmp/wp.sh
 
 EXPOSE 9000
