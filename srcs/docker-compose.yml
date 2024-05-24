@@ -12,7 +12,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./mariadb_vol/:/var/lib/mysql/:delegated
+       - mariadb_vol:/var/lib/mysql
 
 
   wordpress:
@@ -28,7 +28,7 @@ services:
     depends_on:
       - mariadb
     volumes:
-      - ./wordpress_vol/:/var/www/html/:delegated
+      - wordpress_vol:/var/www/html
 
   nginx:
     image: nginx
@@ -45,9 +45,12 @@ services:
     #ports:
    #   - " 443:443"
     volumes:
-      - ./wordpress_vol/:/var/www/html/:delegated
+      - wordpress_vol:/var/www/html
 
 networks:
   inception:
     driver: bridge
 
+volumes:
+  mariadb_vol:
+  wordpress_vol:
