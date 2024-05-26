@@ -6,7 +6,8 @@ RUN apt-get update -y && apt-get upgrade -y \
 	&& wget http://wordpress.org/latest.tar.gz \
 	&& mkdir -p /var/www/html \
 	&& tar xfz latest.tar.gz -C /var/www/html \
-	&& rm -rf latest.tar.gz
+	&& mv /var/www/html/wordpress/* /var/www/html \
+	&& rm -rf latest.tar.gz && rm -fr /var/www/html/wordpress
 
 COPY ./tools/wp.sh /tmp/wp.sh
 

@@ -1,7 +1,5 @@
 #!/bin/sh
 
-if [ ! -d /run/mysqld ]
-then
 	echo "Setting up Mariadb"
 	mkdir -p /run/mysqld
 	chown -R mysql:mysql /run/mysqld
@@ -21,10 +19,6 @@ chmod +x init.sql
 
 mv init.sql /var/lib/mysql/init.sql
 
-fi
-
 echo "Mariadb started"
-
-tail -f
 
 mariadbd --init-file /var/lib/mysql/init.sql
