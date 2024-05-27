@@ -1,12 +1,12 @@
 FROM debian:bullseye
 
 RUN apt-get update -y && apt-get upgrade -y \
-    && apt-get install tini nginx openssl -y
+    && apt-get install vim tini nginx openssl -y
 
 COPY ./tools/nginx.sh /tmp/nginx.sh
 COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 443
+EXPOSE 12443
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 

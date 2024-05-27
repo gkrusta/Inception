@@ -49,5 +49,15 @@ networks:
     driver: bridge
 
 volumes:
-  mariadb_vol: 
+  mariadb_vol:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/gkrusta/data/mariadb
   wordpress_vol:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/gkrusta/data/wordpress
