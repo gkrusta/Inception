@@ -1,7 +1,9 @@
 FROM debian:bullseye
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update -y && apt-get upgrade -y \
-    && apt-get install vim tini nginx openssl apt-utils -y \
+    && apt-get install vim tini nginx openssl -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

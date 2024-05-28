@@ -1,7 +1,9 @@
 FROM debian:bullseye
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update -y && apt-get upgrade -y \
-	&& apt-get install php-fpm php-mysql wget unzip tini apt-utils -y \
+	&& apt-get install php-fpm php-mysql wget unzip tini -y \
 	&& wget http://wordpress.org/latest.tar.gz \
 	&& mkdir -p /var/www/html \
 	&& tar xfz latest.tar.gz -C /var/www/html \

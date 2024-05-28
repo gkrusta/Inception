@@ -1,7 +1,9 @@
 FROM debian:bullseye
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update -y && apt-get upgrade -y \
-	&& apt-get install tini mariadb-server apt-utils -y \
+	&& apt-get install tini mariadb-server -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
