@@ -1,5 +1,3 @@
-#version: '3.7'
-
 services:
   mariadb:
     container_name: mariadb-container
@@ -12,7 +10,6 @@ services:
       - .env
     volumes:
        - mariadb_vol:/var/lib/mysql
-
 
   wordpress:
     container_name: wordpress-container

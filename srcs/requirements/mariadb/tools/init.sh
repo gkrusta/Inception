@@ -1,9 +1,9 @@
 #!/bin/sh
 
-	echo "Setting up Mariadb"
-	mkdir -p /run/mysqld
-	chown -R mysql:mysql /run/mysqld
-	chown -R mysql:mysql /var/lib/mysql
+echo "Setting up Mariadb"
+mkdir -p /run/mysqld
+chown -R mysql:mysql /run/mysqld
+chown -R mysql:mysql /var/lib/mysql
 
 cat << EOF > init.sql
 

@@ -3,9 +3,7 @@ FROM debian:bullseye
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && apt-get upgrade -y \
-	&& apt-get install tini mariadb-server -y \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+	&& apt-get install tini mariadb-server -y
 
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY ./tools/init.sh /docker-entrypoint-initdb.d/init.sh

@@ -6,6 +6,8 @@ DC_FILE = srcs/docker-compose.yml
 all: up
 
 up:
+	mkdir -p /home/gkrusta/data/mariadb
+	mkdir -p /home/gkrusta/data/wordpress
 	$(DOCKER_COMPOSE) -f $(DC_FILE) up -d --build
 
 help:
